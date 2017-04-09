@@ -29,7 +29,7 @@ const byte switch_l = 5;              //left indication & acceleration
 const byte switch_m = 6;              //right indication & deceleration
 const byte switch_r = 7;              //break
 
-int l_indic,r_indic;                  //speed of left and right wheels in array
+int l_indic,r_indic,rev=0;;                  //speed of left and right wheels in array
 int velocity=0;                       //reference velocity
 int max_velocity=100;                 //max velocity
 int velocity_div=10;                  //number of velocity divisions
@@ -121,8 +121,8 @@ void angle_measure()
   else
   {
     ang1=0;
-  }//Serial.print(" ");
-//Serial.println(angle);
+  }Serial.print(" ");
+Serial.println(angle);
   if(ang1!=0)
   {
     if(az>0)
@@ -137,6 +137,10 @@ void angle_measure()
   else
   {
     ang2=0;
+  }
+  if((!ang1)&&(!rev))
+  {
+    l_indic=0;r_indic=0;
   }
 }
 
@@ -191,6 +195,7 @@ void left_indic_dec_func()
         velocity=(max_velocity/velocity_div);
         l_indic=1;
         r_indic=1;
+        rev=1;
         l_r_velocity();
       }
     }
@@ -304,5 +309,8 @@ void transmit_values()
   }
   
 }
+
+
+
 
 
