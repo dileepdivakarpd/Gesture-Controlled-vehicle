@@ -25,9 +25,9 @@ volatile unsigned long last_micros;
 const byte interruptPin1 = 2;         //left indication & acceleration
 const byte interruptPin2 = 3;         //right indication & deceleration
 
-const byte switch_l = 5;              //left indication & acceleration
-const byte switch_m = 6;              //right indication & deceleration
-const byte switch_r = 7;              //break
+const byte switch_l = 5;              //left indication & deceleration
+const byte switch_m = 6;              //break
+const byte switch_r = 7;              //right indication & acceleration
 
 int l_indic,r_indic,rev=0;;                  //speed of left and right wheels in array
 int velocity=0;                       //reference velocity
